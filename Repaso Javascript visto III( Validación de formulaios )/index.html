@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Validación de formularios</title>
+</head>
+<body>
+	<h1>Validación de Formularios</h1>
+	<form action="procesa.php" method="get" onsubmit="return validaFormulario()">
+		<p>Nombre:<input type="text" id="nombre" name="nombre" ></p>
+		<p>Contraseña:
+			<input type="password" id="password" name="password" ></p>
+		<p>Edad:<input type="number" id="edad" name="edad" ></p>
+		<p>Provincia:<select name="provincia" id="provincia">
+			<option value="ninguna">--Elija una--</option>
+			<option value="ab">Albacete</option>
+			<option value="cu">Cuenca</option>
+			<option value="cr">Ciudad Real</option>
+		</select>
+		<p><input type="checkbox" id="acepto" name="acepto" >Acepto las condiciones</p>
+		<input type="submit">
+
+	</form>
+	<script type="text/javascript">
+		function validaFormulario() {
+			let nombre=document.getElementById("nombre");
+			let password = document.getElementById("password");
+			let edad = document.getElementById("edad");
+			let provincia = document.getElementById("provincia");
+			let acepto = document.getElementById("acepto");
+			if (nombre.value==""){
+				alert("El nombre no puede estar vacio");
+				nombre.focus();
+				return false;
+			}
+			if (password.value.length<6){
+				alert("La contraseña debe tener al menos 6 caracteres");
+				password.focus();
+				return false;
+			}
+		 	if (edad.value<18){
+				alert("Debes ser mayor de 18 años");
+				return false;
+			}
+			if (provincia.value=="ninguna"){
+				alert("Debes elegir una provincia");
+				return false;
+			}
+			if (acepto.checked==false){
+				alert("Debes aceptar las condiciones");
+				return false;
+			}
+			//si llega hasta aquí es que cumple  todas las condiciones
+			return true;
+
+		}
+
+
+
+	</script>
+</body>
+</html>

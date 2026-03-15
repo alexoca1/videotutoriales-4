@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+JS y DOM: ejericio con visibility:hidden</title>
+</head>
+<script>
+    function mostrarProvincias() {
+        let pais = document.getElementById("pais").value;
+        let provincias = document.getElementById("provincias");
+        if(pais=="es"){
+            provincias.style.visibility="visible";
+            return true;
+        }
+        provincias.style.visibility="hidden";
+        return false;
+    }
+
+</script>
+<body>
+    <h1>
+Provicia de envio
+    </h1>
+    <label for="pais">Pais: </label>
+    <select name="pais" id="pais" onchange="return mostrarProvincias()">
+        <option selected value="el">Elija destino</option>
+        <option value="es">España</option>
+        <option value="fe">Fuera de España</option>
+        
+    </select>
+     <select style="visibility: hidden" name="provincias" id="provincias">
+        <option value="ma">Madrid</option>
+        <option value="fe">Toledo</option>
+         <option value="cr">Ciudad real</option>
+        <option value="cu">Cuenca</option>
+        
+    </select>
+</body>
+</html>

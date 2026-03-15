@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="alineacion()">
+        alineacion
+    </button>
+     <button onclick="factorial()">
+        Factorial
+    </button>
+  <button onclick="tablaMultiplicar()">
+        Tabla de multiplicar
+    </button>
+    <button onclick="imprime_alineacion()">
+        Imprime alineación
+    </button>
+    <script type="text/javascript">
+
+        function tablaMultiplicar(){
+            let numero=prompt("Dime un numero y hago su tabla de multiplicar") 
+            document.write("<h1>Tabla del " + numero+"</h1>");
+            document.write("<table border='1'>");
+            for(let i=1;i<=10;i++){
+                document.write("<tr><td>"+numero+ " x "+ i+"</td><td>"
+                    + numero*i+"</td></tr>"
+                );
+            }
+            document.write("</table>");
+        }
+
+        function factorial() {
+            let numero=prompt("Dime un numero que le calculo el factorial")   ;
+            let factorial=1;
+            for (let i=1;i<=numero;i++){
+                factorial=factorial*i;
+            }
+            alert("El factorial de "+numero+" es "+factorial);
+        }
+        function alineacion() {
+
+            var alineacion = ['Benzema', 'Bale', 'Marcelo', 'Sergio R'];
+            alineacion[4] = "casemiro";
+            let posicion = prompt("dime posicion");
+            alert(alineacion[posicion]);
+        }
+          function imprime_alineacion() {
+
+            var alineacion = ['Benzema', 'Bale', 'Marcelo', 'Sergio R'];
+            alineacion[4] = "casemiro";
+            for(let i=0;i<alineacion.length;i++){
+                document.write(i + " "+ alineacion[i] +"<br>")
+            }
+            alert(alineacion[posicion]);
+        }
+    </script>
+
+</body>
+
+</html>

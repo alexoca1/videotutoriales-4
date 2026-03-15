@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            font-family: arial;
+            box-sizing: border-box;
+        }
+
+        #titulo {
+            text-align: center;
+        }
+
+        #aviso {
+            color: red;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        #capaformulario {
+            height: auto;
+            background-color: grey;
+            border-radius: 15px;
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 30%;
+            color: white;
+            border-radius: 2px;
+        }
+
+        input {
+            width: 70%;
+            height: 25px;
+
+            border: 1px solid white;
+            border-radius: 2px;
+        }
+    </style>
+    <script type="text/javascript">
+        function validaFormulario() {
+            var aviso = document.getElementById("aviso");
+            aviso.innerHTML = "";
+            var nombre = document.getElementById("nombre");
+            if (nombre.value.length == 0) {
+                aviso.innerHTML = "**El nombre no puede estar vacio**";
+                nombre.focus();
+                return false;
+            }
+            var fecha = document.getElementById("fecha");
+            if (fecha.value.length == 0) {
+                aviso.innerHTML = "**Debes seleccionar una fecha**";
+                fecha.focus();
+                return false;
+            }
+            var fechaHoy = new Date();
+            var fechaHoyStr = fechaHoy.toDateString();
+            fechaHoyStr = fechaHoyStr.slice(0,10);
+            alert(fechaHoyStr);
+           if (fecha.value < "2026-02-01") {
+                aviso.innerHTML = "**La fecha no puede ser inferior a la fecha de hoy**";
+                fecha.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="titulo">Formulario de inscirpción</h1>
+    <div id="capaformulario">
+        <form action="procesa.php" onsubmit="return validaFormulario()">
+
+            <label for="nombre">Nombre: </label>
+            <input type="text" name="nombre" id="nombre"><br>
+            <label for="fecha">fecha de inscripcion</label><br>
+            <input type="date" name="fecha" id="fecha">
+            <div style="text-align: center; margin-top: 20px;">
+                <input type="submit" name="submit" id="submit" value="Enviar" style="color: black;">
+            </div>
+        </form>
+    </div>
+    <h6 id="aviso"></h6>
+</body>
+
+</html>

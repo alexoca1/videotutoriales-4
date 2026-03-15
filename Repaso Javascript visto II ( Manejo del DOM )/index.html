@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Repaso JS ( Manejo del DOM )</title>
+	<style type="text/css">
+		img {width: 200px;height: 200px;}
+		.importante { color:blue; background-color: lightblue; }
+
+	</style>
+</head>
+<body>
+<h1 id="titulo">Título</h1>
+<h1 id="titulo2">Título</h1>
+<p>Usuario:<input id="usuario" type="text" value="Pepe"></p>
+<img id="imagen" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Campo_de_Criptana_Molinos_de_Viento_1.jpg">
+
+<button onclick="cambiaTitulo()">Cambia Título</button>
+<button onclick="cambiaImagen()">Cambia Imagen</button>	
+<button onclick="cambiaValor()">Cambia Valor</button>
+<button onclick="cambiaColor()">Cambia Color</button>
+<button onclick="ocultaImagen()">Oculta Imagen</button>	
+<button onclick="aplicaClase()">Aplica Clase</button>
+<button onclick="nuevoHTML()">Nuevo HTML</button>
+<p>Idioma: <select id="idioma" onchange="cambiaIdioma()">
+	<option value="es">Español</option>
+	<option value="en">Inglés</option>
+</select></p>
+
+<script type="text/javascript">
+	/** propiedad innerHTMl **/
+	function cambiaTitulo(){
+		let titulo=document.getElementById("titulo");
+		titulo.innerHTML = "Título NUEVO";
+	}
+	/** atributos html: ej. src o value **/
+	function cambiaImagen(){
+		document.getElementById("imagen").src = "https://estaticos.muyhistoria.es/uploads/images/pyr/57036af75cafe801f93c0be9/c-don-quijote-mancha_0.jpg";
+	}
+	function cambiaValor(){
+		document.getElementById("usuario").value="admin";
+	}
+	/** propiedades css ( se pone .style )  **/
+	function cambiaColor(){
+		let titulo=document.getElementById("titulo");
+		titulo.style.color = "red";
+		titulo.style.backgroundColor = "yellow";
+		titulo.style.fontSize = "4em";
+		titulo.style.border = "2px solid red";
+	}
+	function ocultaImagen(){
+		document.getElementById("imagen").style.display = "none";
+	}
+	/** aplicar una clase a un elemento  **/
+	function aplicaClase(){
+		let titulo=document.getElementById("titulo2");
+		titulo.className = "importante";
+	}
+	/** Escribir nuevo HTML  **/
+	function nuevoHTML(){
+		document.write("<h1>Nuevo HTML</h1>");
+	}
+	
+	function cambiaIdioma(){
+		let miSelect=document.getElementById("idioma");
+		let titulo=document.getElementById("titulo");
+		if ( miSelect.value=="en" ) {
+			titulo.innerHTML = "New Title";
+		} else {
+			titulo.innerHTML = "Nuevo Título";
+		}
+	}
+</script>
+</body>
+
+</html>

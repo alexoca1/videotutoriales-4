@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT # Operadores, Funciones, Depuración</title>
+</head>
+<body>
+    <script type="text/javascript">
+function parImpar (num) {
+    if(num %2==0){
+        return "par"
+    }
+    else {
+        return "impar";
+    }
+}
+
+        function diceImpar() {
+            let numero=parseInt(prompt("Dime un número"));
+            let resultado = parImpar(numero);
+            alert("El número es "+ resultado);
+        }
+
+
+        function sumarNumeros() {
+        let numero1=parseInt(prompt("Dime un número"));
+        let numero2=parseInt(prompt("Dime otro número"));
+        let suma=numero1 + numero2;
+        alert("la suma de "+numero1+" y "+numero2+" es "+ suma);
+        }        
+        
+    </script>
+    <button onclick="sumarNumeros()">
+        Sumar numeros
+    </button>
+       <button onclick="diceImpar()">
+        Par o Impar
+    </button>
+    
+</body>
+</html>
